@@ -1,1 +1,2 @@
-# wr-training-course
+# training-course
+

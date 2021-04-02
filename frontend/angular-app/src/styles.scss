@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+@import "styles/vars";
+@import "styles/border";
+@import "styles/button";
+@import "styles/text";
+
+/**
+  font-size 16px base:
+  12px: 0.75em
+  14px: 0.875em
+  15px: 0.9375em
+  18px: 1.5em
+  26px: 1.625em
+  30px: 1.875em
+ */
+:root {
+  font-size: 6.25%; /* 6.25% * 16px = 1px (1rem can be used for 1px) */
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14rem; /* 14 * 1px (1rem) = 14px */
+  line-height: 18rem;
+}
+
+/**
+  TEXT
+ */
+h1 {
+  font-size: 26rem;
+  font-weight: bold;
+  line-height: 34rem;
+}
+
+h2, h3 {
+  font-size: 30rem;
+  font-weight: bold;
+  line-height: 39rem;
+}
+
+p {
+  font-size: 14rem;
+  line-height: 18rem;
+}
+
+/**
+  INPUT
+ */
+input {
+  background-color: $bgd-light;
+  border: 1px solid $border-grey-1;
+  border-radius: 6px;
+  height: 40px;
+  padding: 0 21rem;
+}
+
+input::placeholder {
+  font-size: 14rem;
+  font-weight: bold;
+  color: $text-grey;
+}

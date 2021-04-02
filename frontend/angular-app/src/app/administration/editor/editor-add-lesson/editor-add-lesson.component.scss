@@ -1,0 +1,77 @@
+.edition {
+  width: 965px;
+  margin: 0 auto;
+
+
+}
+
+.content {
+  width: 80%;
+  margin: 0 auto;
+
+  &__content {
+    margin: 0 auto;
+    display: flex;
+    background-color: red;
+
+    div {
+      width: 50%;
+    }
+
+    &__image {
+      max-width: 100%;
+      vertical-align: middle;
+    }
+  }
+}
+
+.pointer input,
+.pointer label {
+  cursor: pointer;
+}
+
+.input-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.input-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  border: 1px solid red;
+}
+
+.input-container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+
+
+
+.sqr-bttn {
+  font-weight: bold;
+  cursor: pointer;
+  height: 80px;
+  width: 100px;
+  border: none;
+  border-radius: 6px;
+}
