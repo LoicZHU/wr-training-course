@@ -1,0 +1,74 @@
+<section class="edition">
+  <div class="edition__lesson">
+    <input class="input-edition-size" type="text" placeholder="Nom de la leçon..." [(ngModel)]="lesson">
+    <button class="bttn bttn-dark-1 bttn-medium text-white" [disabled]="!lesson" (click)="addLesson()">Enregistrer</button>
+    <h2 *ngIf="showLesson">{{lesson}}</h2>
+  </div>
+
+  <div class="edition__video">
+    <video controls width="100%" src=""></video>
+    <div class="edition__video__buttons">
+      <button class="bttn bttn-primary bttn-small text-white">Modifier</button>
+      <button class="bttn bttn-secondary bttn-small text-white">Supprimer</button>
+    </div>
+  </div>
+
+  <div class="edition__content">
+    <div class="edition__content__content">
+      <div class="edition__content__content__text">
+        <h2>Nom formation</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet aperiam consequatur, cum dicta dolor dolorum eaque enim excepturi expedita facere facilis fuga ipsa modi nihil obcaecati quis recusandae reprehenderit repudiandae saepe soluta sunt vero. Eum molestias mollitia nihil!</p>
+      </div>
+
+      <div class="edition__content__content__image">
+        <img src="assets/some-image.png" alt="image">
+      </div>
+    </div>
+
+    <div class="edition__content__buttons">
+      <button class="bttn bttn-primary bttn-small text-white">Modifier</button>
+      <button class="bttn bttn-secondary bttn-small text-white">Supprimer</button>
+    </div>
+  </div>
+
+  <app-edition-add-content *ngIf="isShownContentForm" (saved)="showContentForm()"></app-edition-add-content>
+
+  <app-edition-add-quizz *ngIf="isShownQuizForm" (saved)="showQuizForm()"></app-edition-add-quizz>
+
+  <app-edition-add-video *ngIf="isShownVideoForm" (saved)="showVideoForm()"></app-edition-add-video>
+
+  <div class="edition__add">
+    <h3 class="text-blue">+ ajout du contenu de leçon</h3>
+    <div class="edition__add__buttons">
+      <button class="sqr-bttn bttn-primary text-white" (click)="showContentForm()">
+        <div>
+          <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.4144 0.844604H1.08559C0.763513 0.844604 0.5 1.10812 0.5 1.43019C0.5 1.75226 0.763513 2.01578 1.08559 2.01578H19.4144C19.7365 2.01578 20 1.75226 20 1.43019C20 1.10812 19.7365 0.844604 19.4144 0.844604Z" fill="white"/>
+            <path d="M13.9685 5.70496H1.08559C0.763513 5.70496 0.5 5.96847 0.5 6.29054C0.5 6.61261 0.763513 6.87613 1.08559 6.87613H13.9685C14.2905 6.87613 14.554 6.61261 14.554 6.29054C14.554 5.96847 14.2905 5.70496 13.9685 5.70496Z" fill="white"/>
+            <path d="M19.4144 10.6239H1.08559C0.763513 10.6239 0.5 10.8874 0.5 11.2095C0.5 11.5315 0.763513 11.795 1.08559 11.795H19.4144C19.7365 11.795 20 11.5315 20 11.2095C20 10.8874 19.7365 10.6239 19.4144 10.6239Z" fill="white"/>
+            <path d="M9.34233 15.4842H1.08559C0.763513 15.4842 0.5 15.7477 0.5 16.0698C0.5 16.3919 0.763513 16.6554 1.08559 16.6554H9.34233C9.66441 16.6554 9.92792 16.3919 9.92792 16.0698C9.92792 15.7477 9.66441 15.4842 9.34233 15.4842Z" fill="white"/>
+          </svg>
+        </div>
+        <div>Contenu</div>
+      </button>
+      <button class="sqr-bttn bttn-primary text-white" (click)="showQuizForm()">
+        <div>
+          <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99999 19C14.6944 19 18.5 15.1944 18.5 10.5C18.5 5.80558 14.6944 2 9.99999 2C5.30558 2 1.5 5.80558 1.5 10.5C1.5 15.1944 5.30558 19 9.99999 19ZM9.99999 20.5C15.5228 20.5 20 16.0228 20 10.5C20 4.97715 15.5228 0.5 9.99999 0.5C4.47715 0.5 0 4.97715 0 10.5C0 16.0228 4.47715 20.5 9.99999 20.5Z" fill="white"/>
+            <path d="M8.53973 12.88C8.48973 12.36 8.51473 11.92 8.61473 11.56C8.71473 11.19 8.84973 10.875 9.01973 10.615C9.19972 10.345 9.39972 10.115 9.61972 9.92501C9.84972 9.72501 10.0597 9.53501 10.2497 9.35501C10.4497 9.17501 10.6147 8.99001 10.7447 8.80001C10.8747 8.60001 10.9397 8.36501 10.9397 8.09501C10.9397 7.74501 10.8397 7.46501 10.6397 7.25501C10.4497 7.04501 10.1047 6.94001 9.60472 6.94001C9.44472 6.94001 9.27472 6.96001 9.09472 7.00001C8.91473 7.03001 8.73473 7.08001 8.55473 7.15001C8.37473 7.21001 8.19973 7.28501 8.02973 7.37501C7.86973 7.45501 7.72473 7.54001 7.59473 7.63001L6.84473 6.19001C7.22473 5.93001 7.65973 5.71501 8.14973 5.54501C8.64973 5.37501 9.24972 5.29001 9.94972 5.29001C10.8897 5.29001 11.6247 5.52001 12.1547 5.98001C12.6847 6.43001 12.9497 7.04001 12.9497 7.81001C12.9497 8.32001 12.8797 8.74501 12.7397 9.08501C12.6097 9.41501 12.4447 9.70001 12.2447 9.94001C12.0447 10.17 11.8247 10.375 11.5847 10.555C11.3447 10.735 11.1247 10.93 10.9247 11.14C10.7247 11.34 10.5547 11.575 10.4147 11.845C10.2747 12.115 10.2047 12.46 10.2047 12.88H8.53973ZM8.23973 15.01C8.23973 14.66 8.34973 14.385 8.56973 14.185C8.78973 13.975 9.07973 13.87 9.43972 13.87C9.81972 13.87 10.1197 13.975 10.3397 14.185C10.5597 14.385 10.6697 14.66 10.6697 15.01C10.6697 15.36 10.5597 15.64 10.3397 15.85C10.1197 16.06 9.81972 16.165 9.43972 16.165C9.07973 16.165 8.78973 16.06 8.56973 15.85C8.34973 15.64 8.23973 15.36 8.23973 15.01Z" fill="white"/>
+          </svg>
+        </div>
+        <div>Quiz</div>
+      </button>
+      <button class="sqr-bttn bttn-primary text-white" (click)="showVideoForm()">
+        <div>
+          <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.2403 7.12031L8.55277 4.19063C8.37211 4.07774 8.14445 4.07176 7.95816 4.175C7.77184 4.27824 7.65625 4.47449 7.65625 4.6875V10.5469C7.65625 10.7599 7.77184 10.9561 7.95816 11.0594C8.04668 11.1084 8.14449 11.1328 8.24219 11.1328C8.35012 11.1328 8.45789 11.103 8.55273 11.0438L13.2402 8.11407C13.4116 8.00699 13.5156 7.81922 13.5156 7.61719C13.5156 7.41516 13.4116 7.22739 13.2403 7.12031ZM8.82816 9.48969V5.74465L11.8242 7.61719L8.82816 9.48969Z" fill="white"/>
+            <path d="M17.0703 0H2.92968C1.31426 0 0 1.31426 0 2.92969V12.3047C0 13.9201 1.31426 15.2344 2.92968 15.2344H17.0703C18.6857 15.2344 20 13.9201 20 12.3047V2.92969C20 1.31426 18.6857 0 17.0703 0ZM18.8281 12.3047C18.8281 13.2739 18.0396 14.0625 17.0703 14.0625H2.92968C1.96043 14.0625 1.17187 13.2739 1.17187 12.3047V2.92969C1.17187 1.96043 1.96043 1.17188 2.92968 1.17188H17.0703C18.0396 1.17188 18.8281 1.96043 18.8281 2.92969V12.3047Z" fill="white"/>
+          </svg>
+        </div>
+        <div>Vidéo</div>
+      </button>
+    </div>
+  </div>
+</section>

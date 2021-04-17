@@ -1,6 +1,25 @@
-<span *ngIf="showInput">
-  <input type="text" placeholder="Nom de la formation...">
-  <button>Enregistrer</button>
-</span>
+<header>
+  <div class="content">
+    <span class="content__training">
+      <h1>{{title}}</h1>
 
-<button>Publier</button>
+      <span class="content__training__name" *ngIf="showInput">
+        <input class="input-edition-size" type="text" placeholder="Nom de la formation..." [(ngModel)]="course">
+
+        <button type="button">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" y="0.5" width="27" height="27" rx="3.5" stroke="#D4D4D4"/>
+        <path d="M12.519 17.7492L10.2508 15.481L15.7368 9.99503L18.005 12.2632L12.519 17.7492ZM10.0388 15.8805L12.1195 17.9612L9 19L10.0388 15.8805ZM18.7026 11.5686L18.3092 11.962L16.038 9.69082L16.4314 9.2974C16.8277 8.90087 17.4704 8.90087 17.8667 9.2974L18.7026 10.1333C19.096 10.531 19.096 11.1711 18.7026 11.5686Z" fill="#D4D4D4"/>
+      </svg>
+        </button>
+
+        <button class="bttn bttn-dark-1 text-white" [disabled]="!course" (click)="addCourse()">Enregistrer</button>
+      </span>
+    </span>
+
+    <span>
+      <button class="bttn bttn-primary bttn-large text-white">Publier</button>
+      <button class="bttn bttn-white bttn-large">Déconnexion</button>
+    </span>
+  </div>
+</header>

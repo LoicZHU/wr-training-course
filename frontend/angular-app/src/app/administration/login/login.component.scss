@@ -1,0 +1,58 @@
+@import "src/styles/vars";
+
+.container {
+  height: 100vh;
+
+  .login {
+    background-color: $bgd-main;
+    height: 526rem;
+    width: 449rem;
+    position: relative;
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
+
+    h1,
+    h2 {
+      text-align: center;
+    }
+
+    h1 {
+      padding-top: 17rem;
+      height: 72rem;
+      line-height: calc(72rem - 3rem);
+    }
+
+    .rule {
+      margin: 3rem auto 0;
+      width: 238rem;
+      border-bottom: 1px solid #587896;
+    }
+
+    h2 {
+      margin-top: 37rem;
+      margin-bottom: 33rem;
+    }
+
+    form {
+      input:nth-of-type(2) {
+        margin-top: 8rem;
+      }
+
+      input + div {
+        text-align: center;
+      }
+
+      input,
+      button {
+        display: block;
+        margin: 0 auto;
+      }
+
+      button {
+        width: 140rem;
+        margin-top: 134rem;
+      }
+    }
+  }
+}

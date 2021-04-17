@@ -12,9 +12,12 @@ $text-white: #FFFFFF;
 /**
   BACKGROUND
  */
+$bgd-main: #FFFFFF;
 $bgd-primary: #000000;
 $bgd-secondary: #F5F5F5;
 $bgd-light: #E8E8E8;
+$bgd-grey: #D4D4D4;
+$bgd-grey-2: #E5E5E5;
 
 /**
   BUTTON
@@ -30,5 +33,13 @@ $bttn-white: #FFFFFF;
  */
 $border-grey-1: #D4D4D4;
 $border-grey-2: #CBCBCB;
+$border-grey-3: #E8E8E8;
 $border-invalid: #FF0000;
 $border-valid: #17C35C;
+$border-black: #000000;
+
+/**
+  INPUT: CHECKBOX
+ */
+$checkbox-grey: #E8E8E8;;
+$checkbox-black: #303030;

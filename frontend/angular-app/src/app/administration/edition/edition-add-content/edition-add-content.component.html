@@ -1,0 +1,55 @@
+<div class="container">
+  <h3 class="text-blue">Contenu</h3>
+
+  <form [formGroup]="formContent" (ngSubmit)="onSubmit()">
+    <div class="form-content">
+      <div class="form-content__inputs">
+        <input type="text" placeholder="Titre..." required formControlName="title">
+        <textarea class="bgd-grey" name="" id="" cols="30" rows="10" placeholder="Contenu..." required formControlName="content"></textarea>
+      </div>
+
+      <div class="form-content__file">
+        <ngx-dropzone class="custom-dropzone" id="dropzone-image"  accept="image/*" [multiple]="false"
+          [maxFileSize]="maxFileSize" (change)="onSelect($event)">
+          <ngx-dropzone-label>+ ajout image</ngx-dropzone-label>
+          <ngx-dropzone-image-preview class="custom-preview" ngProjectAs="ngx-dropzone-preview" *ngFor="let f of file" [file]="f" [removable]="true"
+            (removed)="onRemove(f)">
+            <ngx-dropzone-label class="text-grey">{{f.name}} {{f.type}}</ngx-dropzone-label>
+          </ngx-dropzone-image-preview>
+        </ngx-dropzone>
+      </div>
+    </div>
+    <div class="text-invalid" *ngIf="
+      (formContent.controls.title.dirty && formContent.controls.title.invalid) || (formContent.controls.content.dirty && formContent.controls.content.invalid)"
+    >
+      Veuillez saisir le titre et le contenu.
+    </div>
+    <div class="text-invalid" *ngIf="imageRejected">La taille maximale autorisée de l'image est de {{formatBytes(maxFileSize)}}.
+    </div>
+
+    <div class="form-content__image">
+      <div class="form-content__image__options">
+        <div>
+          <span class="hexa-color">Couleur de fond</span>
+          <input type="text" placeholder="#KM36PI..." formControlName="backgroundColor">
+        </div>
+
+        <div class="positionings">
+          <span>Positionnement image</span>
+          <span class="position" *ngFor="let positioning of positionings; let i = index">
+            <input type="checkbox" [id]="positioning.id" [name]="positioning.name" [checked]="positioning.checked" (click)="choosePosition(i)">
+            <label class="text-grey" [for]="positioning.for">{{positioning.value}}</label>
+          </span>
+        </div>
+      </div>
+
+      <div class="text-invalid" *ngIf="formContent.controls.backgroundColor.dirty && formContent.controls.backgroundColor.invalid">
+        Veuillez saisir correctement le code hexadécimal avec 7 caractères et sans espace.
+      </div>
+    </div>
+
+    <button class="bttn bttn-dark-1 bttn-medium text-white" [disabled]="formContent.invalid || !imageAdded">
+      Enregistrer
+    </button>
+  </form>
+</div>

@@ -1,0 +1,55 @@
+@import "src/styles/vars";
+
+header {
+  background-color: $bgd-main;
+  position: fixed;
+  min-width: 100%;
+  top: 0;
+  z-index: 1;
+
+  .content {
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 41rem;
+
+    &__training {
+      display: flex;
+      align-items: center;
+
+      h1 {
+        display: inline;
+        margin-right: 10rem;
+      }
+
+      &__name {
+        margin-right: 40rem;
+        display: flex;
+
+        input {
+          margin-right: 10rem;
+        }
+
+        button[type="button"] {
+          padding: 0;
+          border: none;
+          background-color: $bgd-main;
+        }
+
+        button:not([type="button"]) {
+          width: 133rem;
+        }
+      }
+    }
+
+    span {
+      display: flex;
+
+      .bttn.bttn-white {
+        border: 3px solid $border-grey-1;
+        margin-left: 8rem;
+      }
+    }
+  }
+}

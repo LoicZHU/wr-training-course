@@ -1,0 +1,32 @@
+<div class="container">
+  <h3 class="text-blue">Vidéo</h3>
+
+  <form [formGroup]="formVideo" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="Titre vidéo..." required formControlName="title">
+    <div class="text-invalid" *ngIf="formVideo.controls.title.touched && formVideo.controls.title.dirty && formVideo.controls.title.invalid">
+      Veuillez saisir le titre de la vidéo.
+    </div>
+
+    <input type="text" placeholder="Lien YouTube..." (ngModelChange)="checkValue()" formControlName="youtubeUrl">
+    <div class="text-invalid" *ngIf="formVideo.controls.youtubeUrl.touched && formVideo.controls.youtubeUrl.dirty && formVideo.controls.youtubeUrl.invalid">
+      Veuillez saisir un lien valide.
+    </div>
+
+    <ngx-dropzone class="custom-dropzone" id="dropzone-video" accept="video/*" [maxFileSize]="maxFileSize" [disabled]="youtubeUrlAdded" [multiple]="false" (change)="onSelect($event)">
+      <ngx-dropzone-label>+ ajout vidéo MP4</ngx-dropzone-label>
+
+      <ngx-dropzone-video-preview class="custom-preview" ngProjectAs="ngx-dropzone-preview" *ngFor="let f of file"
+        [file]="f" [removable]="true" (removed)="onRemove(f)">
+        <ngx-dropzone-label class="text-grey">{{f.name}} {{f.type}}</ngx-dropzone-label>
+      </ngx-dropzone-video-preview>
+    </ngx-dropzone>
+    <div class="text-invalid" *ngIf="videoRejected">La taille maximale autorisée de la vidéo est de {{formatBytes(maxFileSize)}}.</div>
+
+    <button class="bttn bttn-dark-1 bttn-medium text-white"e
+      [disabled]="formVideo.invalid || (!formVideo.controls.youtubeUrl.value ||
+      !formVideo.controls.youtubeUrl.value.trim()) && !videoAdded"
+    >
+      Enregistrer
+    </button>
+  </form>
+</div>

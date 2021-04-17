@@ -1,0 +1,105 @@
+@import "src/styles/vars";
+.container {
+  padding-bottom: 14rem;
+
+  h3 {
+    text-align: center;
+  }
+
+  form button {
+    display: block;
+    margin: 0 auto;
+  }
+
+  form {
+    padding: 0 41rem;
+
+    .form-content {
+      width: 100%;
+      display: flex;
+
+      &__inputs {
+        width: calc(100% * 2 / 3);
+
+        input:nth-child(1) {
+          width: 100%;
+        }
+
+        input:last-child {
+          width: 116rem;
+        }
+
+        textarea {
+          width: 100%;
+          resize: none;
+          margin: 13rem 0 0;
+        }
+      }
+
+      &__file {
+        width: calc(100% * 1 / 3);
+        margin-left: 19rem;
+
+        .custom-dropzone {
+          min-height: 98.4% !important;
+          height: 98.4% !important;
+        }
+      }
+
+      &__image {
+        margin: 13rem 0;
+
+        &__options {
+          font-size: 12rem;
+          font-weight: bold;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .hexa-color {
+            font-weight: bold;
+            margin-right: 11rem;
+          }
+
+          .positionings {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+
+            .position {
+              margin-left: 15rem;
+              vertical-align: middle;
+            }
+
+            input[type="checkbox"] {
+              display: none;
+            }
+
+            input[type="checkbox"] + label {
+              font-weight: bold;
+            }
+
+            input[type="checkbox"] + label::before {
+              content: "";
+              border: 1px solid $border-grey-1;
+              border-radius: 2px;
+              background-color: $checkbox-grey;
+              padding-right: 15.34rem;
+              margin-right: 10rem;
+            }
+
+            input[type="checkbox"]:checked + label::before {
+              background-color: $checkbox-black;
+              border-color: black;
+            }
+
+            input[type="checkbox"]:checked + label {
+              color: $text-dark-2;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from "./login/login.component";
+import {AdministrationComponent} from "./administration.component";
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'edition', loadChildren: () => import('./editor/editor.module').then(m => m.EditorModule)},
-  {path: '', redirectTo: 'edition', pathMatch: 'full'},
+  {path: '', component: AdministrationComponent, children: [
+    {path: 'login', component: LoginComponent},
+    {path: 'edition', loadChildren: () => import('./edition/edition.module').then(m => m.EditionModule)},
+    {path: '', redirectTo: 'edition', pathMatch: 'full'},
+  ]},
   {path: '**', redirectTo: 'edition', pathMatch: 'full'},
 ];
 

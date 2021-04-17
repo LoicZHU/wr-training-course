@@ -1,0 +1,30 @@
+@import "src/styles/vars";
+
+.container {
+  border-top: 1px solid $border-grey-3;
+  padding-bottom: 33rem;
+
+  h3 {
+    text-align: center;
+  }
+
+  form {
+    width: 591rem;
+    margin: 0 auto;
+
+    input {
+      width: 100%;
+    }
+    input:nth-of-type(2), ngx-dropzone {
+      margin-top: 25rem;
+    }
+    input:disabled {
+      opacity: 0.2;
+    }
+
+    button {
+      margin: 33rem auto 0;
+      display: block;
+    }
+  }
+}

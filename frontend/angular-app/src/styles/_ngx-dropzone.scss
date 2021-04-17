@@ -1,0 +1,19 @@
+@import "vars";
+
+ngx-dropzone-label {
+  font-size: 14rem;
+  font-weight: bold;
+  font-style: italic;
+}
+
+ngx-dropzone.custom-dropzone {
+  border: 2px dashed $border-grey-1;
+  border-radius: 6px;
+}
+
+.custom-preview{
+  margin: 0 auto !important;
+  min-width: 90% !important;
+  max-width: 90% !important;
+  min-height: 80% !important;
+}

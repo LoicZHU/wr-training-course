@@ -1,0 +1,75 @@
+@import "src/styles/vars";
+
+.container {
+  border-top: 1px solid $border-grey-3;
+  padding-bottom: 15rem;
+
+  h3 {
+    text-align: center;
+  }
+
+  form {
+    width: 524rem;
+    margin: 0 auto;
+
+    input:first-of-type {
+      margin-bottom: 7rem;
+    }
+
+    input:not([type="checkbox"]) {
+      width: 100%;
+    }
+
+    div {
+      margin-top: 24rem;
+
+      input[type="checkbox"] {
+        display: none;
+      }
+
+      input[type="checkbox"] + label {
+        font-weight: bold;
+      }
+
+      input[type="checkbox"] + label::before {
+        content: "";
+        border: 1px solid $border-grey-1;
+        border-radius: 2px;
+        background-color: $checkbox-grey;
+        padding-right: 18rem;
+        margin-right: 10rem;
+      }
+
+      input[type="checkbox"]:checked + label::before {
+        background-color: $checkbox-black;
+        border-color: black;
+      }
+
+      input[type="checkbox"]:checked + label {
+        color: $text-dark-2;
+      }
+
+      label {
+        user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+      }
+    }
+
+    .rule {
+      border-top: 1px solid $border-grey-3;
+      margin: 13rem 0 8rem;
+    }
+
+    button:first-of-type {
+      display: block;
+      height: 30px;
+    }
+
+    button:last-of-type {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

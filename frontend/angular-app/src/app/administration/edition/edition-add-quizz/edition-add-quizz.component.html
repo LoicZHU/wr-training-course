@@ -1,0 +1,30 @@
+<div class="container">
+  <h3 class="text-blue">Quiz</h3>
+
+  <form [formGroup]="formQuizz" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="Titre quiz..." required formControlName="title">
+    <input type="text" placeholder="Question..." required formControlName="question">
+    <div class="text-invalid"
+      *ngIf="(formQuizz.controls.title.dirty && formQuizz.controls.title.invalid) || (formQuizz.controls.question.dirty && formQuizz.controls.question.invalid)"
+    >
+      Veuillez saisir le titre du quiz et la question.
+    </div>
+
+    <div *ngFor="let htmlAnswer of htmlAnswers; let i = index">
+      <input type="text" [placeholder]="htmlAnswer.placeholder" [name]="htmlAnswer.name" [id]="htmlAnswer.id" required [formControlName]="htmlAnswer.formControl">
+
+      <ng-container formGroupName="groupCheckbox">
+        <input type="checkbox" [id]="htmlAnswer.checkbox" [formControlName]="i + 1" (click)="checkAnswer(i)">
+        <label class="text-grey" [for]="htmlAnswer.checkbox">Bonne réponse</label>
+      </ng-container>
+    </div>
+
+    <div class="text-invalid" *ngIf="submittedAtLeastOnce && !formQuizz.valid">
+      Veuillez remplir tous les champs et cocher au moins une réponse.
+    </div>
+
+    <div class="rule"></div>
+    <button type="button" class="bttn bttn-primary text-white" (click)="addAnswer()">+ ajouter réponse</button>
+    <button class="bttn bttn-dark-1 bttn-medium text-white" [disabled]="formQuizz.invalid">Enregistrer</button>
+  </form>
+</div>

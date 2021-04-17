@@ -1,1 +1,22 @@
-<p>login works!</p>
+<div class="container">
+  <div class="login">
+    <h1 class="text-blue bgd-grey-2">Editeur de formation</h1>
+    <div class="rule"></div>
+    <h2>Connexion</h2>
+
+    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+      <input type="text" class="input-edition-size" placeholder="Login..." autofocus required formControlName="email">
+      <div class="text-invalid" *ngIf="formLogin.controls.email.dirty && formLogin.controls.email.invalid">Veuillez saisir
+        un email valide.</div>
+
+      <input type="password" id="password" class="input-edition-size" placeholder="Mot de passe..." required formControlName="password">
+      <div class="text-invalid" *ngIf="formLogin.controls.password.dirty && formLogin.controls.password.invalid">
+        {{passwordMinLength}} caractères sont requis pour le mot de passe.
+      </div>
+
+      <button class="bttn bttn-primary text-white" [disabled]="formLogin.invalid">
+        Valider
+      </button>
+    </form>
+  </div>
+</div>

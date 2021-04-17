@@ -1,8 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import "styles/_reset.css";
 @import "styles/vars";
 @import "styles/border";
 @import "styles/button";
 @import "styles/text";
+@import "styles/input";
+@import "styles/ngx-dropzone";
 
 /**
   font-size 16px base:
@@ -28,6 +31,16 @@ html {
 }
 
 body {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body,
+textarea {
   font-family: 'PT Sans', sans-serif;
   font-size: 14rem; /* 14 * 1px (1rem) = 14px */
   line-height: 18rem;
@@ -54,18 +67,41 @@ p {
 }
 
 /**
-  INPUT
+  BUTTON
+ */
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.1;
+  cursor: auto;
+}
+
+/**
+  INPUT, TEXTAREA
  */
 input {
+  height: 40px;
+}
+
+textarea {
+  padding-top: 10rem;
+}
+
+input,
+textarea {
   background-color: $bgd-light;
   border: 1px solid $border-grey-1;
   border-radius: 6px;
-  height: 40px;
-  padding: 0 21rem;
+  padding-left: 21rem;
+  padding-right: 21rem;
 }
 
-input::placeholder {
-  font-size: 14rem;
+input::placeholder,
+textarea::placeholder {
   font-weight: bold;
+  font-style: italic;
   color: $text-grey;
 }
+

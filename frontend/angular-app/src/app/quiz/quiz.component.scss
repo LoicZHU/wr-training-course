@@ -1,0 +1,64 @@
+@import "src/styles/vars";
+
+.container {
+  text-align: left;
+  display: flex;
+
+  .quiz {
+    margin: auto;
+
+    .question {
+      font-weight: bold;
+      margin: 64rem 0 19rem;
+    }
+
+    form {
+      width: 532rem;
+
+      .answer {
+        margin-bottom: 13rem;
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+
+        input[type="checkbox"] {
+          display: none;
+        }
+
+        input + label {
+          height: 99rem;
+          width: 100%;
+          padding: 27rem 25rem 31rem;
+          border: 3px solid $border-grey-2;
+          cursor: pointer;
+          user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          -webkit-user-select: none;
+          display: flex;
+          justify-content: space-between;
+
+          div:not(:first-of-type) {
+            font-weight: bold;
+          }
+        }
+
+        input[type="checkbox"]:checked + label {
+          color: $text-dark-2;
+          font-weight: bold;
+          border: 3px solid $border-black;
+          background-image: url("../../assets/icons/checked.svg");
+          background-repeat: no-repeat;
+          background-position: right 5% bottom 50%;
+        }
+      }
+
+      answer:not(:first-of-type) {
+        margin-top: 14rem;
+      }
+    }
+  }
+}
+

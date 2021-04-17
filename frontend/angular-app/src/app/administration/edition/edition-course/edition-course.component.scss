@@ -1,0 +1,103 @@
+@import "src/styles/vars";
+
+.edition {
+  border: 1px solid $border-grey-3;
+  max-width: 965rem;
+  margin: 38rem auto 0;
+  background-color: $bgd-main;
+  position: relative;
+  top: 100rem;
+
+  &__video__buttons,
+  &__content__buttons {
+    text-align: right;
+    margin-right: 11rem;
+
+    button {
+      margin: 14rem 0 0 9rem;
+      height: 30px;
+    }
+  }
+
+  /**
+    LESSON NAME
+   */
+  &__lesson {
+    min-height: 89px;
+    margin-left: 28rem;
+    display: flex;
+    align-items: center;
+
+    > button {
+      margin-left: 10rem;
+    }
+  }
+
+  /**
+    VIDEO
+   */
+  &__video {
+    margin-bottom: 12rem;
+  }
+
+  /**
+    CONTENT
+   */
+  &__content {
+    padding: 12rem 0;
+
+    &__content {
+      display: flex;
+      align-items: center;
+
+      &__text,
+      &__image {
+        width: 50%;
+      }
+
+      &__text {
+        padding: 0 63rem;
+      }
+
+      &__image {
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  /**
+    ADD CONTENT OF LESSON
+   */
+  &__add {
+    padding: 18rem 0;
+    border-top: 1px solid $border-grey-3;
+
+    h3 {
+      text-align: center;
+    }
+
+    &__buttons {
+      text-align: center;
+
+      button:nth-child(2) {
+        margin: 0 7rem;
+      }
+    }
+  }
+
+  .sqr-bttn {
+    font-weight: bold;
+    cursor: pointer;
+    height: 80px;
+    width: 100px;
+    border: none;
+    border-radius: 6px;
+
+    svg {
+      height: 24rem;
+      padding-bottom: 6rem;
+    }
+  }
+}
