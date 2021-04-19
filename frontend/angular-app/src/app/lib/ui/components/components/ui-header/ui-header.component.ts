@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {AuthService} from "../../../../../shared/services/auth/auth.service";
 
 @Component({
   selector: 'app-ui-header',
@@ -10,7 +11,8 @@ export class UiHeaderComponent implements OnInit {
   @Input() title: string = '';
   course: string = '';
 
-  constructor() { }
+  constructor(private _authService: AuthService) {
+  }
 
   ngOnInit(): void {
   }
@@ -19,5 +21,9 @@ export class UiHeaderComponent implements OnInit {
     if (this.course) {
       this.course = this.course;
     }
+  }
+
+  logout(): void {
+    this._authService.logout()
   }
 }

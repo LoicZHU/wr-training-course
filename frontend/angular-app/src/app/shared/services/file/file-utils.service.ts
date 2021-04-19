@@ -7,6 +7,11 @@ export class FileUtilsService {
 
   constructor() { }
 
+  /**
+   * Converts bytes from: bytes to yotta bytes (byte, KB, MB, GB, TB, PB, EB, ZB, YB)
+   * @param bytes
+   * @param decimals
+   */
   formatBytes(bytes: number, decimals = 2): string {
     if (bytes === 0) return '0 byte';
 

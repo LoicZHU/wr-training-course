@@ -1,26 +1,27 @@
-import * as jwt from 'jsonwebtoken';
 import {Request, Response} from "express";
-import * as argon2 from 'argon2';
 
-import {User} from "../models/user.model";
+import {IUserBaseDocument, User} from "../models/user.model";
+import {IToken, newToken} from "../utils/newToken";
 
 class AuthController {
-  async login(req: Request, res: Response) {
+  async login(req: Request, res: Response): Promise<Response> {
+    console.log('back login')
     try {
-      // checking the user in the database
-      const user = await User.findOne({email: req.body.email}).exec();
+      // checks the user in the database
+      const user: IUserBaseDocument = await User.findOne({email: req.body.email}).exec();
 
       if (!user) {
         return res.status(401).json({message: 'Les identifiants sont incorrects.'})
       } else {
-        // checking the password (doc: https://github.com/ranisalt/node-argon2#readme)
+        // checks the password (docs: https://github.com/ranisalt/node-argon2#readme | https://www.npmjs.com/package/argon2)
         try {
-          const validPassword = await argon2.verify(user.password, req.body.password)
+          const validPassword: boolean = await user.checkPassword(req.body.password);
 
-          if (validPassword) {
-            return res.status(200).json({message: 'Cool ! TODO: Token'})
-          } else {
+          if (!validPassword) {
             return res.status(401).json({message: 'Les identifiants sont incorrects.'})
+          } else {
+            const token: IToken = newToken(user);
+            return res.status(200).json(token)
           }
         } catch (error) {
           return res.status(500).json({error: error})

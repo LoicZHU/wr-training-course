@@ -11,7 +11,6 @@ import {ComponentsModule} from "../../lib/ui/components/components/components.mo
 import {NgxDropzoneModule} from "ngx-dropzone";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
-
 @NgModule({
   declarations: [
     EditionAddContentComponent,
@@ -26,7 +25,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     ComponentsModule,
     NgxDropzoneModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class EditionModule { }
