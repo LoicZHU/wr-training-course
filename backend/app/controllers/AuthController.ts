@@ -5,7 +5,6 @@ import {IToken, newToken} from "../utils/newToken";
 
 class AuthController {
   async login(req: Request, res: Response): Promise<Response> {
-    console.log('back login')
     try {
       // checks the user in the database
       const user: IUserBaseDocument = await User.findOne({email: req.body.email}).exec();

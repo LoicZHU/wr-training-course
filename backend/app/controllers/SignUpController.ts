@@ -14,7 +14,7 @@ class SignUpController {
         const user: IUser = await User.create({email: req.body.email, password: req.body.password});
         const token: IToken = newToken(user)
 
-        return res.status(200).json(token);
+        return res.status(201).json(token);
       } catch (error) {
         return res.status(500).json({error: error})
       }

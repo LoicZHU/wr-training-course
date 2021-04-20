@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private _isAuthenticated = new BehaviorSubject(false);
-  isAuthenticated$ = this._isAuthenticated.asObservable();
 
-  constructor(private readonly _http: HttpClient) {
+  constructor(
+    private readonly _http: HttpClient,
+    private readonly _router: Router,
+  ) {
     this.setToken(this.getToken());
   }
 
@@ -18,13 +21,15 @@ export class AuthService {
   }
 
   logout(): void {
-    this.setToken('');
+    this.setToken(null);
+    this._router.navigate(['administration/login'])
   }
 
   // TOKEN
   setToken(token: string | null): void {
     if (!token) {
-      return
+      localStorage.removeItem('token');
+      this._isAuthenticated.next(false);
     } else {
       localStorage.setItem('token', token);
       this._isAuthenticated.next(true);
@@ -33,5 +38,9 @@ export class AuthService {
 
   getToken(): string | null {
     return localStorage.getItem('token');
+  }
+
+  isAuthenticated(): boolean {
+    return this._isAuthenticated.value
   }
 }

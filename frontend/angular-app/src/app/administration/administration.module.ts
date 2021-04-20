@@ -8,8 +8,7 @@ import {ComponentsModule} from "../lib/ui/components/components/components.modul
 import {NgxDropzoneModule} from "ngx-dropzone";
 import {EditionModule} from "./edition/edition.module";
 import {ReactiveFormsModule} from "@angular/forms";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {RequestInterceptorService} from "../shared/interceptors/request-interceptor.service";
+import { HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,9 +23,6 @@ import {RequestInterceptorService} from "../shared/interceptors/request-intercep
     NgxDropzoneModule,
     ReactiveFormsModule,
     HttpClientModule
-  ],
-  providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: RequestInterceptorService, multi: true},
   ],
   exports: [
   ]

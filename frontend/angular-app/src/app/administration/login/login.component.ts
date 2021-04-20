@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
      this.loginSubscription = this._authService.login(email, password)
       .subscribe((res: any) => {
+        console.log('login sub')
         this._authService.setToken(res['access_token']);
         this._router.navigate(['administration/edition']);
       })
