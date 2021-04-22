@@ -50,4 +50,8 @@ yarn dev
 ng serve
 ```
 
-- Then you can open a browser and type in the URL: `localhost:4200`.
+- Then you can open a browser and type in the URL: `localhost:4200`:
+  - at the moment, the current available routes are:
+    - `/`
+    - `/administration/login`
+    - `/administration/edition` (must be logged user)
