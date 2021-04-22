@@ -7,8 +7,9 @@
 It is an app of an another bigger project for a LMS website.
 
 ## Install dependencies
+If you have MongoDB installed on your computer, you can install dependencies.
+
 ### Back-end
-If you have MongoDB installed on your computer:
 - Go into `backend` folder and install:
 ```
 yarn
@@ -22,7 +23,23 @@ yarn
 
 ## Launch app
 ### Back-end
-- Go into `backend` folder and launch server:
+- Go into `backend` folder and create a `.env` file, like the `.env-example` file with something like this:
+```
+APP_NAME="Express"
+
+NODE_ENV="development"
+
+SERVER_PORT=1234
+
+DATABASE_HOST="mongodb://localhost/training-course"
+DATABASE_PORT=""
+DATABASE_USER=""
+DATABASE_PASSWORD=""
+
+TOKEN_SECRET_KEY="ZEec8:YZe8aK{/k]X)(Gjy"
+```
+
+- Still in the `backend` folder, launch server:
 ```
 yarn dev
 ```
