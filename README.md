@@ -4,7 +4,8 @@
 
 # Training course
 "Training course" project is a 1 month project (_still WIP_).<br/>
-It is an app of an another bigger project for a LMS website.
+It is an app part of an another project for a LMS website.
+It is not "responsive design", but desktop only.
 
 ## Install dependencies
 If you have MongoDB installed on your computer, you can install dependencies.
@@ -52,6 +53,7 @@ ng serve
 
 - Then you can open a browser and type in the URL: `localhost:4200`:
   - at the moment, the current available routes are:
-    - `/`
+    - `/formation/lecon`
+    - `/formation/quiz`
     - `/administration/login`
     - `/administration/edition` (must be logged user)
