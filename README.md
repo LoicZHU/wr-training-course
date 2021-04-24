@@ -3,7 +3,7 @@
 ![Made with Express](https://img.shields.io/badge/Made%20with-Express-whitesmoke)
 
 # Training course
-"Training course" project is a 1 month project (_still WIP_).<br/>
+"Training course" project is a simple project (_still WIP_).<br/>
 It is an app part of an another project for a LMS website.
 It is not "responsive design", but desktop only.
 
