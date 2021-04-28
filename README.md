@@ -57,3 +57,12 @@ ng serve
     - `/formation/quiz`
     - `/administration/login`
     - `/administration/edition` (must be logged user)
+  
+- Create an administrator in the DB on `localhost:1234/signup` with a body:
+```json5
+{
+  "email": "some@email.com",
+  "password": "mustBeAtLeast8Characters"
+}
+```
+  
